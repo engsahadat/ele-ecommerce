@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -30,25 +31,39 @@ Route::middleware(['auth', 'verified', 'rolemanager:admin'])->group(function(){
             Route::get('/order/history', 'orderHistory')->name('admin.order.history');
         });
         Route::controller(CategoryController::class)->group(function(){
+            Route::get('/category/index', 'index')->name('category.index');
             Route::get('/category/create', 'create')->name('category.create');
-            Route::get('/category/manage', 'manage')->name('category.manage');
+            Route::post('/category/store', 'store')->name('category.store');
+            Route::get('/category/edit/{id}', 'edit')->name('category.edit');
+            Route::put('/category/update/{id}', 'update')->name('category.update');
+            Route::delete('/category/delete/{id}', 'destroy')->name('category.destroy');
         });
         Route::controller(SubCategoryController::class)->group(function(){
+            Route::get('/sub-category/index', 'index')->name('subcategory.index');
             Route::get('/sub-category/create', 'create')->name('subcategory.create');
-            Route::get('/sub-category/manage', 'manage')->name('subcategory.manage');
+            Route::post('/sub-category/store', 'store')->name('subcategory.store');
+            Route::get('/sub-category/edit/{id}', 'edit')->name('subcategory.edit');
+            Route::put('/sub-category/update/{id}', 'update')->name('subcategory.update');
+            Route::delete('/sub-category/delete/{id}', 'destroy')->name('subcategory.destroy');
+        });
+        Route::controller(ProductAttributesController::class)->group(function(){
+            Route::get('/product-attributes/index', 'index')->name('productattributes.index');
+            Route::get('/product-attributes/create', 'create')->name('productattributes.create');
+            Route::post('/product-attributes/store', 'store')->name('productattributes.store');
+            Route::get('/product-attributes/edit/{id}', 'edit')->name('productattributes.edit');
+            Route::put('/product-attributes/update/{id}', 'update')->name('productattributes.update');
+            Route::delete('/product-attributes/delete/{id}', 'destroy')->name('productattributes.destroy');
         });
         Route::controller(ProductController::class)->group(function(){
             Route::get('/product/create', 'create')->name('product.create');
             Route::get('/product/manage', 'reviewManage')->name('product.manage');
         });
-        Route::controller(ProductAttributesController::class)->group(function(){
-            Route::get('/product-attributes/create', 'create')->name('productattributes.create');
-            Route::get('/product-attributes/manage', 'manage')->name('productattributes.manage');
-        });
         Route::controller(ProductDiscountController::class)->group(function(){
             Route::get('/discount/create', 'create')->name('discount.create');
             Route::get('/discount/manage', 'manage')->name('discount.manage');
         });
+        
+        
     });
 });
 //vendor routes

@@ -1,12 +1,12 @@
 @extends('admin.layouts.layout')
-@section('admin_title','Create Category - Admin Panel')
+@section('admin_title','Edit Product Attribute - Admin Panel')
 @section('admin_layout')
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-xl-8 col-lg-10 col-md-12">
             <div class="admin-form-card admin-form-shadow">
                 <div class="admin-form-card-header">
-                    <h4 class="mb-0 text-white">Add New Category</h4>
+                    <h4 class="mb-0 text-white">Edit Product Attribute</h4>
                 </div>
                 <div class="card-body">
                     @if (session('message'))
@@ -16,37 +16,23 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
-                    <form action="{{ route('category.store') }}" method="POST" class="needs-validation" novalidate>
+                    <form action="{{ route('productattributes.update', $attribute->id) }}" method="POST" class="needs-validation" novalidate>
                         @csrf
+                        @method('PUT')
                         <div class="mb-4">
-                            <label for="name" class="form-label">
-                                Category Name <span class="text-danger">*</span>
+                            <label for="attribute_value" class="form-label">Attribute Name <span class="text-danger">*</span>
                             </label>
-                            <input type="text" class="form-control @error('name') is-invalid @enderror"   id="name" name="name" value="{{ old('name') }}" placeholder="Enter category name">
-                            @error('name')
+                            <input type="text" class="form-control @error('attribute_value') is-invalid @enderror"   id="attribute_value" name="attribute_value" value="{{ old('attribute_value', $attribute->attribute_value) }}" placeholder="Enter attribute name">
+                            @error('attribute_value')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
-                        
-                        <div class="mb-4">
-                            <label for="description" class="form-label">Description</label>
-                            <textarea class="form-control @error('description') is-invalid @enderror" 
-                                      id="description" 
-                                      name="description" 
-                                      rows="10" 
-                                      placeholder="Enter category description">{{ old('description') }}</textarea>
-                            @error('description')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                            <div class="form-text">Provide a brief description of this category.</div>
-                        </div>
-
                         <div class="d-flex justify-content-between align-items-center pt-3">
                             <a href="{{ route('productattributes.index') }}" class="admin-form-btn btn btn-outline-secondary admin-form-btn-lg">
                                 Cancel
                             </a>
                             <button type="submit" class="admin-form-btn btn btn-primary admin-form-btn-lg">
-                                Create Category
+                                Update Product Attribute
                             </button>
                         </div>
                     </form>

@@ -16,14 +16,14 @@
             <li class="sidebar-header">
                 Category
             </li>
+            <li class="sidebar-item {{ request()->routeIs('category.index') ? 'active' : '' }}">
+                <a class="sidebar-link" href="{{ route('category.index') }}">
+                    <i class="align-middle" data-feather="list"></i> <span class="align-middle">Manage</span>
+                </a>
+            </li>
             <li class="sidebar-item {{ request()->routeIs('category.create') ? 'active' : '' }}">
                 <a class="sidebar-link" href="{{ route('category.create') }}">
                     <i class="align-middle" data-feather="plus"></i> <span class="align-middle">Create</span>
-                </a>
-            </li>
-            <li class="sidebar-item {{ request()->routeIs('category.manage') ? 'active' : '' }}">
-                <a class="sidebar-link" href="{{ route('category.manage') }}">
-                    <i class="align-middle" data-feather="list"></i> <span class="align-middle">Manage</span>
                 </a>
             </li>
             <li class="sidebar-header">
@@ -34,8 +34,21 @@
                     <i class="align-middle" data-feather="plus"></i> <span class="align-middle">Create</span>
                 </a>
             </li>
-            <li class="sidebar-item {{ request()->routeIs('subcategory.manage') ? 'active' : '' }}">
-                <a class="sidebar-link" href="{{ route('subcategory.manage') }}">
+            <li class="sidebar-item {{ request()->routeIs('subcategory.index') ? 'active' : '' }}">
+                <a class="sidebar-link" href="{{ route('subcategory.index') }}">
+                    <i class="align-middle" data-feather="list"></i> <span class="align-middle">Manage</span>
+                </a>
+            </li>
+            <li class="sidebar-header">
+               Product Attributes
+            </li>
+            <li class="sidebar-item {{ request()->routeIs('productattributes.create') ? 'active' : '' }}">
+                <a class="sidebar-link" href="{{ route('productattributes.create') }}">
+                    <i class="align-middle" data-feather="plus"></i> <span class="align-middle">Create</span>
+                </a>
+            </li>
+            <li class="sidebar-item {{ request()->routeIs('productattributes.index') ? 'active' : '' }}">
+                <a class="sidebar-link" href="{{ route('productattributes.index') }}">
                     <i class="align-middle" data-feather="list"></i> <span class="align-middle">Manage</span>
                 </a>
             </li>
@@ -70,19 +83,7 @@
                     <i class="align-middle" data-feather="list"></i> <span class="align-middle">Order</span>
                 </a>
             </li>
-            <li class="sidebar-header">
-               Attributes
-            </li>
-            <li class="sidebar-item {{ request()->routeIs('productattributes.create') ? 'active' : '' }}">
-                <a class="sidebar-link" href="{{ route('productattributes.create') }}">
-                    <i class="align-middle" data-feather="plus"></i> <span class="align-middle">Create</span>
-                </a>
-            </li>
-            <li class="sidebar-item {{ request()->routeIs('productattributes.manage') ? 'active' : '' }}">
-                <a class="sidebar-link" href="{{ route('productattributes.manage') }}">
-                    <i class="align-middle" data-feather="list"></i> <span class="align-middle">Manage</span>
-                </a>
-            </li>
+            
             <li class="sidebar-header">
                Discount
             </li>
