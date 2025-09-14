@@ -24,6 +24,7 @@
     <div class="wrapper">
         @include('admin.layouts.navbar')
         <div class="main">
+            @include('admin.layouts.top-nav')
             <main class="content">
                 <div class="container-fluid p-0">
                     @yield('admin_layout')

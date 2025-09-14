@@ -23,6 +23,7 @@
     <div class="wrapper">
         @include('customer.layouts.navbar')
         <div class="main">
+            @include('customer.layouts.top-nav')
             <main class="content">
                 <div class="container-fluid p-0">
                     @yield('customer_layout')

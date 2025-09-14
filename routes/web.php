@@ -55,12 +55,12 @@ Route::middleware(['auth', 'verified', 'rolemanager:admin'])->group(function(){
             Route::delete('/product-attributes/delete/{id}', 'destroy')->name('productattributes.destroy');
         });
         Route::controller(ProductController::class)->group(function(){
+            Route::get('/product/index', 'index')->name('product.index');
             Route::get('/product/create', 'create')->name('product.create');
-            Route::get('/product/manage', 'reviewManage')->name('product.manage');
         });
         Route::controller(ProductDiscountController::class)->group(function(){
+            Route::get('/discount/index', 'index')->name('discount.index');
             Route::get('/discount/create', 'create')->name('discount.create');
-            Route::get('/discount/manage', 'manage')->name('discount.manage');
         });
         
         
@@ -74,12 +74,20 @@ Route::middleware(['auth', 'verified', 'rolemanager:vendor'])->group(function(){
             Route::get('/order/history', 'orderHistory')->name('vendor.order.history');
         });
         Route::controller(SellerProductController::class)->group(function(){
-            Route::get('/product/store', 'create')->name('vendor.product.create');
-            Route::get('/product/manage', 'manage')->name('vendor.product.manage');
+            Route::get('/product/index', 'index')->name('vendor.product.index');
+            Route::get('/product/create', 'create')->name('vendor.product.create');
+            Route::post('/product/store', 'store')->name('vendor.product.store');
+            Route::get('/product/edit/{id}', 'edit')->name('vendor.product.edit');
+            Route::put('/product/update/{id}', 'update')->name('vendor.product.update');
+            Route::delete('/product/delete/{id}', 'destroy')->name('vendor.product.destroy');
         });
         Route::controller(SellerStoreController::class)->group(function(){
+            Route::get('/store/index', 'index')->name('vendor.store.index');
             Route::get('/store/create', 'create')->name('vendor.store.create');
-            Route::get('/store/manage', 'manage')->name('vendor.store.manage');
+            Route::post('/store/store', 'store')->name('vendor.store.store');
+            Route::get('/store/edit/{id}', 'edit')->name('vendor.store.edit');
+            Route::put('/store/update/{id}', 'update')->name('vendor.store.update');
+            Route::delete('/store/delete/{id}', 'destroy')->name('vendor.store.destroy');
         });
     });
 });
@@ -87,7 +95,7 @@ Route::middleware(['auth', 'verified', 'rolemanager:vendor'])->group(function(){
 Route::middleware(['auth', 'verified', 'rolemanager:customer'])->group(function(){
     Route::prefix('user')->group(function(){
         Route::controller(CustomerMainController::class)->group(function(){
-            Route::get('/dashboard', 'index')->name('dashboard');
+            Route::get('/dashboard', 'dashboard')->name('dashboard');
             Route::get('/profile', 'profile')->name('customer.profile');
             Route::get('/history', 'history')->name('customer.history');
             Route::get('/affiliate', 'affiliate')->name('customer.affiliate');

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class CustomerMainController extends Controller
 {
-    public function index(){
+    public function dashboard(){
         return view('customer.dashboard');
     }
     public function profile(){

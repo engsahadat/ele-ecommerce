@@ -60,14 +60,9 @@
                     <i class="align-middle" data-feather="star"></i> <span class="align-middle">Create</span>
                 </a>
             </li>
-            <li class="sidebar-item {{ request()->routeIs('product.manage') ? 'active' : '' }}">
-                <a class="sidebar-link" href="{{ route('product.manage') }}">
+            <li class="sidebar-item {{ request()->routeIs('product.index') ? 'active' : '' }}">
+                <a class="sidebar-link" href="{{ route('product.index') }}">
                     <i class="align-middle" data-feather="shopping-bag"></i> <span class="align-middle">Manage</span>
-                </a>
-            </li>
-            <li class="sidebar-item {{ request()->routeIs('product.manage') ? 'active' : '' }}">
-                <a class="sidebar-link" href="{{ route('product.manage') }}">
-                    <i class="align-middle" data-feather="shopping-bag"></i> <span class="align-middle">Manage Review</span>
                 </a>
             </li>
              <li class="sidebar-header">
@@ -92,8 +87,8 @@
                     <i class="align-middle" data-feather="plus"></i> <span class="align-middle">Create</span>
                 </a>
             </li>
-            <li class="sidebar-item {{ request()->routeIs('discount.manage') ? 'active' : '' }}">
-                <a class="sidebar-link" href="{{ route('discount.manage') }}">
+            <li class="sidebar-item {{ request()->routeIs('discount.index') ? 'active' : '' }}">
+                <a class="sidebar-link" href="{{ route('discount.index') }}">
                     <i class="align-middle" data-feather="list"></i> <span class="align-middle">Manage</span>
                 </a>
             </li>

@@ -17,12 +17,15 @@
     <title>@yield('seller_title')</title>
 
     <link href="{{ asset('admin_asset/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin_asset/css/custom.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    @livewireStyles
 </head>
 <body>
     <div class="wrapper">
         @include('seller.layouts.navbar')
         <div class="main">
+            @include('seller.layouts.top-nav')
             <main class="content">
                 <div class="container-fluid p-0">
                     @yield('seller_layout')
@@ -32,5 +35,6 @@
         </div>
     </div>
     <script src="{{ asset('admin_asset/js/app.js') }}"></script>
+    @livewireScripts
 </body>
 </html>

@@ -3,7 +3,6 @@
         <a class="sidebar-brand" href="index.html">
             <span class="align-middle">Ele-Ecommerce</span>
         </a>
-
         <ul class="sidebar-nav">
             <li class="sidebar-header">
                 Main
@@ -19,19 +18,6 @@
                 </a>
             </li>
             <li class="sidebar-header">
-                Product
-            </li>
-            <li class="sidebar-item {{ request()->routeIs('vendor.product.create') ? 'active' : '' }}">
-                <a class="sidebar-link" href="{{ route('vendor.product.create') }}">
-                    <i class="align-middle" data-feather="plus"></i> <span class="align-middle">Create</span>
-                </a>
-            </li>
-            <li class="sidebar-item {{ request()->routeIs('vendor.product.manage') ? 'active' : '' }}">
-                <a class="sidebar-link" href="{{ route('vendor.product.manage') }}">
-                    <i class="align-middle" data-feather="list"></i> <span class="align-middle">Manage</span>
-                </a>
-            </li>
-            <li class="sidebar-header">
                 Store
             </li>
             <li class="sidebar-item {{ request()->routeIs('vendor.store.create') ? 'active' : '' }}">
@@ -39,8 +25,21 @@
                     <i class="align-middle" data-feather="plus"></i> <span class="align-middle">Create</span>
                 </a>
             </li>
-            <li class="sidebar-item {{ request()->routeIs('vendor.store.manage') ? 'active' : '' }}">
-                <a class="sidebar-link" href="{{ route('vendor.store.manage') }}">
+            <li class="sidebar-item {{ request()->routeIs('vendor.store.index') ? 'active' : '' }}">
+                <a class="sidebar-link" href="{{ route('vendor.store.index') }}">
+                    <i class="align-middle" data-feather="list"></i> <span class="align-middle">Manage</span>
+                </a>
+            </li>
+            <li class="sidebar-header">
+                Product
+            </li>
+            <li class="sidebar-item {{ request()->routeIs('vendor.product.create') ? 'active' : '' }}">
+                <a class="sidebar-link" href="{{ route('vendor.product.create') }}">
+                    <i class="align-middle" data-feather="plus"></i> <span class="align-middle">Create</span>
+                </a>
+            </li>
+            <li class="sidebar-item {{ request()->routeIs('vendor.product.index') ? 'active' : '' }}">
+                <a class="sidebar-link" href="{{ route('vendor.product.index') }}">
                     <i class="align-middle" data-feather="list"></i> <span class="align-middle">Manage</span>
                 </a>
             </li>
